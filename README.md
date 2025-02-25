@@ -64,3 +64,6 @@ React Native UI Component  Android View   IOS View       WEB ANALOG
 <Image>                    <ImageView>    <UIImageView>  <img>
 <ScrollView>               <ScrollView>   <UIScrollView> <div>
 <TextInput>                <EditText>     <UITextField>  <input type="text">
+
+Core Components:
+<View>, <Image>, <Button>, <Text>, <ScrollView>, <Pressable>, <Modal>, <StatusBar>, <ActivityIndicator>, <Alert>
