@@ -1,10 +1,14 @@
-import { View, Text, Image, ImageBackground, ScrollView } from 'react-native';
+import { View, Text, Image, ImageBackground, ScrollView, Button } from 'react-native';
 import adaptiveImg from '@/assets/images/adaptive-icon.png';
 
 export default function App(){
+  const handlePress = () => {
+    console.log('Button Pressed');
+  };
+
   return (
     <View style={{flex: 1, backgroundColor:'plum', padding: 60}}>
-      <ScrollView>
+      {/* <ScrollView> */}
         {/* <View style={{width:200, height: 200, backgroundColor: 'lightblue' }}>
 
         </View>
@@ -21,7 +25,7 @@ export default function App(){
         {/* <ImageBackground source={adaptiveImg} style={{flex:1}}>
           <Text> Image text</Text>
         </ImageBackground> */}
-        <Image source={adaptiveImg} style={{width: 300, height: 300}}/>
+        {/* <Image source={adaptiveImg} style={{width: 300, height: 300}}/>
         <Text>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam mollitia eum ratione qui voluptas! Error, omnis. Odio temporibus consequuntur, tempora sit eos officia nihil ipsum quis pariatur, voluptatum accusamus molestiae.
           Sint, accusamus voluptas repudiandae provident minima fugit quidem totam, nostrum eligendi magnam, ratione odit quasi delectus fuga perspiciatis odio blanditiis nisi illum aliquam dolorum recusandae accusantium! Amet voluptas rem molestiae.
@@ -35,9 +39,9 @@ export default function App(){
           Quo et aut harum molestias architecto natus in dignissimos eum! Repudiandae explicabo a necessitatibus exercitationem quasi ab recusandae, cumque quis aliquam officia alias maiores dicta ratione impedit quas doloremque officiis!
         </Text>
         <Image source={adaptiveImg} style={{width: 300, height: 300}}/>
+      </ScrollView> */}
 
-
-      </ScrollView>
+      <Button title='Press' onPress={handlePress} color='midnightblue' disabled/>
     </View>
   );
 }
