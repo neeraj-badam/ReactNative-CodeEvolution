@@ -48,3 +48,19 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+
+## Core Components
+
+- View: View is a small rectangular element on the screen that can display text, images, or respond to user input
+
+- Android: views are written in Kotlin or Java
+- iOS: views are written in swift or Objective-C
+- React Native - views using JS through React components
+
+React Native UI Component  Android View   IOS View       WEB ANALOG
+<View>                     <ViewGroup>    <UIView>       A non scrolling <div>
+<Text>                     <TextView>     <UITextView>   <p>
+<Image>                    <ImageView>    <UIImageView>  <img>
+<ScrollView>               <ScrollView>   <UIScrollView> <div>
+<TextInput>                <EditText>     <UITextField>  <input type="text">
