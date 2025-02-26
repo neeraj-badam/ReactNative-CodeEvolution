@@ -67,3 +67,8 @@ React Native UI Component  Android View   IOS View       WEB ANALOG
 
 Core Components:
 <View>, <Image>, <Button>, <Text>, <ScrollView>, <Pressable>, <Modal>, <StatusBar>, <ActivityIndicator>, <Alert>
+
+SafeAreaView:
+This is used to avoid content on top, 
+Generally the content will start from the top of the device, but if we use SafeAreaView, this will helps us to avoid 
+displaying content from the top of the device, this avoids the space used for notch and displays the content spaced correctly.
