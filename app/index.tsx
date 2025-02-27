@@ -1,62 +1,36 @@
-import { View, StyleSheet, Text, ScrollView, SafeAreaView, StatusBar, FlatList, SectionList} from 'react-native';
-import groupedPokemonList from '../grouped-data.json';
-import pokemonList from '../data.json';
+import { SafeAreaView, StyleSheet, Text, TextInput, StatusBar, Switch, View} from 'react-native';
+import { useState } from 'react';
 
 export default function App(){
-  
+  const [name, setName] = useState('');
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <ScrollView style={styles.scrollView}>
-        {
-          pokemonList.map((pokemon) => {
-            return (
-              <View key={pokemon.id} style={styles.card}>
-                <Text style={styles.cardText}> {pokemon.type} </Text>
-                <Text style={styles.cardText}  > {pokemon.name} </Text>
-              </View>
-            )
-          })
-        }
-      </ScrollView> */}
-      <View style={styles.scrollView}>
-        {/* Mandatory props for FlatList are data, renderItem */}
-        {/* <FlatList
-          data={pokemonList}
-          renderItem={( { item } ) => {
-            console.log( item.id );
-            return (
-              <View key={item.id} style={styles.card}>
-                <Text style={styles.cardText}> {item.type} </Text>
-                <Text style={styles.cardText}  > {item.name} </Text>
-              </View>
-            )
-          }}
-          keyExtractor={(item, index) => item.id.toString() }
-          // horizontal
-          ItemSeparatorComponent={ <View style={{ height: 16 }} /> }
-          ListEmptyComponent={ <Text style={styles.listEmptyText}> No Items Found! </Text> }
-          ListHeaderComponent={ <Text style={styles.headerText}> Pokemon List </Text> }
-          ListFooterComponent={ <Text style={styles.footerText}> End of the List </Text> }
-        /> */}
+      <TextInput
+        style={styles.input}
+        value={name}
+        onChangeText={setName}
+        placeholder={`email@example.com`}
+        // secureTextEntry
+        // keyboardType='email-address'
+        // autoCorrect={false}
+        // autoCapitalize='none'
+      />
+      <TextInput
+        style={[styles.input, styles.multiLineText]}
+        placeholder={`Message`}
+        multiline
+      />
+      <Text style={styles.text}> My Name is {name} </Text>
 
-        {/* Mandatory props for sectionlist are sections, renderItem */}
-        <SectionList
-          sections={groupedPokemonList}
-          renderItem={( { item } ) => {
-            return (
-              <View style={styles.card}>
-                <Text style={styles.cardText}>
-                  {item}
-                </Text>
-              </View>
-            )
-          }}
-          renderSectionHeader={ ({ section }) => (
-            <Text style={styles.sectionHeaderText}> {section.type} </Text>
-          ) }
-          ItemSeparatorComponent={ () =>  <View style={{ height: 16 }} /> }
-          SectionSeparatorComponent={ () =>  <View style={{ height: 16 }} /> }
+      <View style={styles.switchContainer}>
+        <Text style={styles.text}> Dark Mode </Text>
+        <Switch
+          value={isDarkMode}
+          onValueChange={() => setIsDarkMode( (prevState) => !prevState)}
+          trackColor={{ false: 'orange', true: 'violet' }}
+          thumbColor={`yellow`}
         />
       </View>
 
@@ -68,39 +42,27 @@ export default function App(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#fff',
     paddingTop: StatusBar.currentHeight,
   },
-  scrollView: {
-    paddingHorizontal: 16,
-  },
-  card: {
-    backgroundColor: 'white',
-    padding: 16,
-    borderRadius: 8,
+  input: {
+    height: 40,
+    margin: 12,
+    padding: 10,
     borderWidth: 1,
-    // marginBottom: 16,
   },
-  cardText: {
+  text: {
     fontSize: 30,
+    padding: 10,
   },
-  listEmptyText: {
-    alignSelf: 'center',
-    fontSize: 24,
+  multiLineText: {
+    minHeight: 100,
+    textAlignVertical: 'top',
   },
-  headerText: {
-    fontSize: 24,
-    textAlign: 'center',
-    marginBottom: 12,
-  },
-  footerText: {
-    fontSize: 24,
-    textAlign: 'center',
-    marginTop: 12,
-  },
-  sectionHeaderText: {
-    backgroundColor: 'white',
-    fontSize: 24,
-    fontWeight: 'bold',
+  switchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
   },
 });
